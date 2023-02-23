@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Transcribe</title>
+    <link href="../css/index.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <nav>
+
+        <ul>
+            <li class="melody"><a href="../html/index.html" alt="logo"><b>TRANSCRIBE</b> </a></li>
+            <li><a href="#">PRODUCT</a>
+                <ul>
+                    <li><a href="../html/documentation.html" alt="documentation">DOCUMENTATION</a></li>
+                    <li><a href="../html/mockup.html" alt="mockup">MOCKUP</a></li>
+                </ul>
+            </li>
+            <li><a href="#">ABOUT</a>
+                <ul>
+                    <li><a href="../html/creators.html" alt="about creators">CREATORS</a></li>
+
+                </ul>
+            </li>
+            <li><a href="#">INSTRUMENTS</a>
+                <ul>
+                    <li><a href="../html/inProgress.html">GUITAR</a></li>
+                    <li><a href="../html/inProgress.html">PIANO</a></li>
+                    <li><a href="../html/inProgress.html">UKELELE</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </nav>
+
+    <h1> Sample Website Mockups </h1>
+
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 8</div>
+            <img src="../images/Transcribe Sample Website - MockUp/Home.png" style="width:100%">
+            <div class="text">Landing Webpage</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 8</div>
+            <img src="../images/Transcribe Sample Website - MockUp/About.png" style="width:100%">
+            <div class="text">About Our Company</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 8</div>
+            <img src="../images/Transcribe Sample Website - MockUp/Services.png" style="width:100%">
+            <div class="text">Services Offered</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 8</div>
+            <img src="../images/Transcribe Sample Website - MockUp/Philosophy.png" style="width:100%">
+            <div class="text">Services Offered</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">5 / 8</div>
+            <img src="../images/Transcribe Sample Website - MockUp/5.png" style="width:100%">
+            <div class="text">Desktop Download</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">6 / 8</div>
+            <img src="../images/Transcribe Sample Website - MockUp/6.png" style="width:100%">
+            <div class="text">Mobile App</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">7 / 8</div>
+            <img src="../images/Transcribe Sample Website - MockUp/Feedback.png" style="width:100%">
+            <div class="text">Testimonies</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">8 / 8</div>
+            <img src="../images/Transcribe Sample Website - MockUp/Contact.png" style="width:100%">
+            <div class="text">Contact Information</div>
+        </div>
+
+
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+
+    <!-- The dots/circles -->
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>n
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+        <span class="dot" onclick="currentSlide(7)"></span>
+        <span class="dot" onclick="currentSlide(8)"></span>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+
+    </script>
+
+    <h1> Transcribe Tool Mockups </h1>
+    <h2 style="text-align: center;"> Horizontal Scroll Menu: </h2>
+    <section>
+        <div class="scrollmenu">
+            <img src="../images/Transcribe tool MockUp/Home.png">Landing Page</a>
+            <img src="../images/Transcribe tool MockUp/2.png">Upload Recording</a>
+            <img src="../images/Transcribe tool MockUp/About.png">Loading</a>
+            <img src="../images/Transcribe tool MockUp/4.png">Download complete</a>            
+            <img src="../images/Transcribe tool MockUp/Services.png">Transcriber tool editor</a>
+            <img src="../images/Transcribe tool MockUp/Contact.png">Contact</a>
+        </div>
+    </section>
+
+</body>

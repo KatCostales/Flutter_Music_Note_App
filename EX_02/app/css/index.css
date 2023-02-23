@@ -1,0 +1,467 @@
+p {
+    font-size: 25px;
+    text-align: center;
+}
+
+body,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* setup background image and fonts */
+body {
+    background: white;
+    background-size: cover;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+}
+
+h1 {
+    margin: 30px;
+    padding: 40px;
+    text-align: center;
+    font-size: 50px;
+}
+
+/* start menu navigation css*/
+nav {
+    /* each ul should be in a flex box */
+    justify-content: center;
+    display: flex;
+}
+
+nav ul {
+    /* dark menu background */
+    background-color: #cad4c3;
+    /* remove default style for ul */
+    list-style: none;
+    /* Set the flex-basis to 60% of parent container */
+    flex-basis: 100%;
+    /* should render on top of everything else */
+    z-index: 99;
+}
+
+/* hide all submenus. */
+nav ul ul {
+    display: none;
+}
+
+/* let's float the elements so they appear */
+/* inline with relative positioning and as */
+/* far to the left as possible             */
+nav ul li {
+    float: left;
+    position: relative;
+    background: none;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+/* let's make each menu link have a nice     */
+/* padded box to live in. Let's also fix the */
+/* color of the displayed menu item.         */
+nav ul li a {
+    /* text-align: center; */
+    color: white;
+    /* padding-left: 40px; */
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+}
+
+nav ul li input {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 3em;
+    width: 10em;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-right: 50px;
+}
+
+/* a CSS pseudo class that will activate when */
+/* the mouse is "hovering" over a list item in */
+/* the top level of the nav menu.             */
+nav ul li:hover a {
+    color: white;
+    justify-content: center;
+}
+
+/* Display a submenu if we hover over a parent */
+nav ul li:hover>ul {
+    display: block;
+    margin: auto;
+    color: black;
+    width: 200px;
+
+}
+
+/* Remove float for submenus, and make */
+/* them relatively positioned          */
+nav ul ul li {
+    float: none;
+    position: relative;
+    padding: 0px 0px 0px 0px;
+    /* border-top: 1px solid #6b727c;
+    border-bottom: 1px solid #575f6a; */
+}
+
+/* Remove our submenu from the normal */
+/* flow of layout when the client     */
+/* draws the web page.                */
+/* use absolute positioning.          */
+nav ul ul {
+    background: #cad4c3;
+    border-radius: 0px;
+    position: absolute;
+}
+
+/* position our sub-submenus to the */
+/* right of the submenu dropdown.   */
+nav ul ul ul {
+    float: center;
+    position: relative;
+    left: 50%;
+    top: 0;
+}
+
+/* adjust the padding and color of a */
+/* sub sub menu item */
+nav ul ul li a {
+    position: relative;
+    color: #fff;
+    position: relative;
+    justify-content: center;
+}
+
+/* change background color on a */
+/* sub sub menu item when hover */
+nav ul ul li a:hover {
+    /* background: rgba(255, 255, 255, 0.343); */
+    color: black;
+
+}
+
+/* end navigation formatting */
+
+.logoimg {
+    height: 70px;
+    align-items: center;
+}
+
+
+/* main webpage formatting */
+.webpageImage {
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    width: 100%;
+    height: auto;
+
+}
+
+
+/* animation fade in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 100;
+    }
+}
+
+.fadeIn {
+    animation: fadeIn 5s;
+}
+
+/* animation: line up, bottom to top */
+@keyframes anim-lineUp {
+    0% {
+        opacity: 0;
+        transform: translateY(80%);
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+.lineUp {
+    animation: 7s anim-lineUp;
+}
+
+/* creators webpage */
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+}
+
+.card {
+    box-shadow: 0 15px 25px 0 rgba(0, 0, 0, 0.2);
+    margin: 160px;
+}
+
+.about-section {
+    padding: 25px;
+    text-align: center;
+    background-color: #fbf8f3;
+    color: black;
+}
+
+.container {
+    grid-template-columns: auto auto;
+    column-gap: 50px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.container::after,
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.title {
+    color: grey;
+}
+
+.button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.button:hover {
+    background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+    .column {
+        width: 100%;
+        display: block;
+    }
+}
+
+/* webpage hover image */
+.example {
+    position: relative;
+    padding: 0;
+    width: 300px;
+    display: block;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.content {
+    opacity: 0;
+    font-size: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #1c87c9;
+    background-color: rgba(200, 200, 200, 0.5);
+    width: 300px;
+    height: 300px;
+    -webkit-transition: all 400ms ease-out;
+    -moz-transition: all 400ms ease-out;
+    -o-transition: all 400ms ease-out;
+    -ms-transition: all 400ms ease-out;
+    transition: all 400ms ease-out;
+    text-align: center;
+}
+
+.example .content:hover {
+    opacity: 1;
+}
+
+.example .content .text {
+    height: 0;
+    opacity: 1;
+    transition-delay: 0s;
+    transition-duration: 0.4s;
+}
+
+.example .content:hover .text {
+    opacity: 1;
+    transform: translateY(250px);
+    -webkit-transform: translateY(250px);
+}
+
+.courier {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.trebuchet {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+/* index landing page  */
+.rowlogo {
+    display: flex;
+}
+
+.col {
+    flex: 50%;
+}
+
+.melodyPhrase {
+    font-size: 100px;
+    font-family: 'chalkduster';
+    padding: 50px 50px 50px 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.melody {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+/* beginning of javascript Exercise 2 css */
+/* cite: w3schools, how to make a slideshow with javascript */
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+/* start of transcribe tool mockup  */
+div.scrollmenu {
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+  }
+  
+  div.scrollmenu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+  }
+  
+  div.scrollmenu a:hover {
+    background-color: #777;
+  }
