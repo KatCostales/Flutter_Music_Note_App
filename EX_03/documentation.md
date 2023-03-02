@@ -21,7 +21,6 @@ EX03_02 – Break down your application from a high level to some specific parts
 <br />&emsp;    o	If an instrument is out of tune, allow user to calibrate the app by listening to the pitch of each played note and comparing it to the correct pitch of the actual note
 
 EX03_03 – Start brainstorming ideas on how to solve the problem you’re working on. No idea is off limits. Once you have enough ideas, come up with a plan to test them (e.g. How will you test? In what order?).
-
 <br />•	Flashcards
 <br />&emsp;    o	Show user a note/chord on the music staff for the user to play
 <br />&emsp;    o	Listen for the correct notes played
@@ -29,9 +28,9 @@ EX03_03 – Start brainstorming ideas on how to solve the problem you’re worki
 <br />&emsp;    o	Way for users to stay engaged with app
 <br />&emsp;    o	Include flashcards (for beginners)
 <br />&emsp;    o	Music writing challenges (for more advanced users)
-<br />•	Push notifications
+<br />•	Push notifications (not necessarily a priority)
 <br />&emsp;    o	Notify users of new challenges, updates, etc.
-<br />•	Offline mode
+<br />•	Offline mode (access phone decice permissions to store files on phone rather than the server)
 <br />&emsp;    o	Allow users to create and modify scores offline and save them on their device until a network becomes available
 
 EX03_04 – Do some market research. Find products that contribute to your idea
