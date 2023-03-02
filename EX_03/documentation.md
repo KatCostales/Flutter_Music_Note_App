@@ -3,6 +3,32 @@ CS-378H Assignment 3
 EX03_01 – Set up your GitHub repository, and add Pete as a collaborator. (Pete’s user name is ptucker).
 
 EX03_02 – Break down your application from a high level to some specific parts. The more detail you can give here, the better. Hang on to this document (GitHub?), since it will change throughout the semester.
+•	Audio listener
+    o	Main feature of application
+    o	Listens for pitch (and possibly timing) of notes played on a given instrument
+•	Auto transcriber
+    o	Records what the listener receives into sheet music 
+•	Sheet music editor
+    o	Allow user to manually modify and polish auto-transcribed music
+•	Flashcards
+    o	Show user a note/chord on the music staff for the user to play
+    o	Listen for the correct notes played
+•	Daily challenges
+    o	Way for users to stay engaged with app
+    o	Include flashcards (for beginners)
+    o	Music writing challenges (for more advanced users)
+•	Data storage
+    o	Store user’s scores on the server
+•	User data
+    o	Store user’s account information in 
+•	Push notifications
+    o	Notify users of new challenges, updates, etc.
+•	Offline mode
+    o	Allow users to create and modify scores offline and save them on their device until a network becomes available
+•	Correct note detection
+    o	Given a score, listen to a user playing and determine if they played the right notes or not
+•	Instrument calibration
+    o	If an instrument is out of tune, allow user to calibrate the app by listening to the pitch of each played note and comparing it to the correct pitch of the             actual note
 
 EX03_03 – Start brainstorming ideas on how to solve the problem you’re working on. No idea is off limits. Once you have enough ideas, come up with a plan to test them (e.g. How will you test? In what order?).
 
