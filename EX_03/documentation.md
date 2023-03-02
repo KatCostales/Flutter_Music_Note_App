@@ -33,7 +33,6 @@ EX03_03 – Start brainstorming ideas on how to solve the problem you’re worki
 <br />•	Offline mode (access phone decice permissions to store files on phone rather than the server)
 <br />&emsp;    o	Allow users to create and modify scores offline and save them on their device until a network becomes available
 
-<br />
 Additionally, for testing purposes, we hope to undergo each phase of the product design process: product definition, conceptual design, embodiment design, and detailed design. This process essentially allows constant refinement and user experience consideration throughout the development and design process.
 
 <br />For each individual feature, we will implement unit test suites that will include valid (expected to succeed) and invalid (expected to fail) tests. We will implement tests at each stage of the development process, testing each feature as necessary.
