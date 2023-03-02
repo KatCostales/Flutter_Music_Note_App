@@ -4,8 +4,8 @@ EX03_01 – Set up your GitHub repository, and add Pete as a collaborator. (Pete
 
 EX03_02 – Break down your application from a high level to some specific parts. The more detail you can give here, the better. Hang on to this document (GitHub?), since it will change throughout the semester.
 <br />•	Audio listener
-<br />    o	Main feature of application
-<br />    o	Listens for pitch (and possibly timing) of notes played on a given instrument
+<br />&nbsp;o	Main feature of application
+<br />&nbsp;o	Listens for pitch (and possibly timing) of notes played on a given instrument
 <br />•	Auto transcriber
 <br />    o	Records what the listener receives into sheet music 
 <br />•	Sheet music editor
