@@ -68,7 +68,7 @@ Score Cloud seems to possess a great interface for the user editor tool. It is c
 
 Muse Score probably has one of the simplest music sheet design layouts that could appear easy to learn and navigate through. They possess great visuals that complement the intention of the software tool.
 
-In essence, I believe balancing out the visual aspect, simple design outlook, and functionality of the app would be most convenient and sensible to adopt from these similar apps. Additionally, we hope to adapt Duolingo’s “journey” interface integrated with the simplistic look of this software app. We hope to cultivate an atmosphere/environment that does not intimidate users with difficult visuals or information form the get-go. 
+In essence, I believe balancing out the visual aspect, simple design outlook, and functionality of the app would be most convenient and sensible to adopt from these similar apps. Additionally, we hope to adapt Duolingo’s “journey” interface integrated with the simplistic look of this software app. We hope to cultivate an atmosphere/environment that does not intimidate users with difficult visuals or information form the get-go. On a business perspective, we hope to have an affordable pricng model that offers free services to beginner uses, thus charging for bigger scale corporations or companies such as schools.
 
 NOTE: This last one is due 10 March, but start now
 EX04_01 – Pick one small piece of functionality, and implement it. 
