@@ -33,6 +33,8 @@ EX03_03 – Start brainstorming ideas on how to solve the problem you’re worki
 <br />•	Offline mode (access phone decice permissions to store files on phone rather than the server)
 <br />&emsp;    o	Allow users to create and modify scores offline and save them on their device until a network becomes available
 
+<br />For each individual feature, we will implement unit test suites that will include valid (expected to succeed) and invalid (expected to fail) tests. We will implement tests at each stage of the development process, testing each feature as necessary.
+
 EX03_04 – Do some market research. Find products that contribute to your idea
 •	Are there products that are very similar? What do they do well? What can you imagine that is 10x better? Warning – it’s dangerous to say “there’s nothing out there like this.”
 •	Are there products that are have overlap? What can you learn from those? How can they contribute to your ideas?
