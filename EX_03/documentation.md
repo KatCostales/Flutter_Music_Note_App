@@ -35,7 +35,7 @@ EX03_03 – Start brainstorming ideas on how to solve the problem you’re worki
 
 Additionally, for testing purposes, we hope to undergo each phase of the product design process: product definition, conceptual design, embodiment design, and detailed design. This process essentially allows constant refinement and user experience consideration throughout the development and design process.
 
-<br />For each individual feature, we will implement unit test suites that will include valid (expected to succeed) and invalid (expected to fail) tests. We will implement tests at each stage of the development process, testing each feature as necessary.
+For each individual feature, we will implement unit test suites that will include valid (expected to succeed) and invalid (expected to fail) tests. We will implement tests at each stage of the development process, testing each feature as necessary.
 
 EX03_04 – Do some market research. Find products that contribute to your idea
 •	Are there products that are very similar? What do they do well? What can you imagine that is 10x better? Warning – it’s dangerous to say “there’s nothing out there like this.”
