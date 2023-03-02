@@ -8,8 +8,20 @@ EX03_02 – Break down your application from a high level to some specific parts
 <br />&emsp;    o	Listens for pitch (and possibly timing) of notes played on a given instrument
 <br />•	Auto transcriber
 <br />&emsp;    o	Records what the listener receives into sheet music 
+<br />&emsp;    o	3 forms of uploading, upload from recording, upload from a video, and/or upload different audio forms
 <br />•	Sheet music editor
 <br />&emsp;    o	Allow user to manually modify and polish auto-transcribed music
+<br />•	Data storage
+<br />&emsp;    o	Store user’s scores on the server
+<br />•	User data
+<br />&emsp;    o	Store user’s account information in 
+<br />•	Correct note detection
+<br />&emsp;    o	Given a score, listen to a user playing and determine if they played the right notes or not
+<br />•	Instrument calibration
+<br />&emsp;    o	If an instrument is out of tune, allow user to calibrate the app by listening to the pitch of each played note and comparing it to the correct pitch of the actual note
+
+EX03_03 – Start brainstorming ideas on how to solve the problem you’re working on. No idea is off limits. Once you have enough ideas, come up with a plan to test them (e.g. How will you test? In what order?).
+
 <br />•	Flashcards
 <br />&emsp;    o	Show user a note/chord on the music staff for the user to play
 <br />&emsp;    o	Listen for the correct notes played
@@ -17,20 +29,10 @@ EX03_02 – Break down your application from a high level to some specific parts
 <br />&emsp;    o	Way for users to stay engaged with app
 <br />&emsp;    o	Include flashcards (for beginners)
 <br />&emsp;    o	Music writing challenges (for more advanced users)
-<br />•	Data storage
-<br />&emsp;    o	Store user’s scores on the server
-<br />•	User data
-<br />&emsp;    o	Store user’s account information in 
 <br />•	Push notifications
 <br />&emsp;    o	Notify users of new challenges, updates, etc.
 <br />•	Offline mode
 <br />&emsp;    o	Allow users to create and modify scores offline and save them on their device until a network becomes available
-<br />•	Correct note detection
-<br />&emsp;    o	Given a score, listen to a user playing and determine if they played the right notes or not
-<br />•	Instrument calibration
-<br />&emsp;    o	If an instrument is out of tune, allow user to calibrate the app by listening to the pitch of each played note and comparing it to the correct pitch of the actual note
-
-EX03_03 – Start brainstorming ideas on how to solve the problem you’re working on. No idea is off limits. Once you have enough ideas, come up with a plan to test them (e.g. How will you test? In what order?).
 
 EX03_04 – Do some market research. Find products that contribute to your idea
 •	Are there products that are very similar? What do they do well? What can you imagine that is 10x better? Warning – it’s dangerous to say “there’s nothing out there like this.”
