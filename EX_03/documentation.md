@@ -58,9 +58,17 @@ Muse Score is a different software that allows users to write, download, and edi
 
 
 Similar Products (What do they do well, what can you imagine is 10x better?):
+Score Cloud, Muse Score, and Melody Scanner are a few of many software available that automatically transcribes music into scores through a subscription model. They ultimately achieve the technical aspect of our product with being able to transcribe, record, store, and convert audio input (from various forms such as video uploads, recording feature, and more) into scores. However, I believe that they lack the community and personal relationship from user to company. By adopting a similar user interface, relationship building, and connection reinforcement as Duolingo, “Transcribe” would cultivate a tool that appeals to users of all music expertise levels promoting the use of our score learning tool.
 
 Products that overlap (What can you learn from those, how can they contribute to your ideas?):
+Melody Scanner possesses a clear, concise, and well-articulate user interface that provides a warm, comforting feeling to the user. Melody Scanner’s interface and overall look promotes a casual learning environment that strays away from how “intimidating” music sheets can appear. 
 
+Score Cloud seems to possess a great interface for the user editor tool. It is clear and has enough negative space to allow the user to explore the tools and features without being bombarded with information. 
+
+Muse Score probably has one of the simplest music sheet design layouts that could appear easy to learn and navigate through. They possess great visuals that complement the intention of the software tool.
+
+In essence, I believe balancing out the visual aspect, simple design outlook, and functionality of the app would be most convenient and sensible to adopt from these similar apps. Additionally, we hope to adapt Duolingo’s “journey” interface integrated with the simplistic look of this software app. We hope to cultivate an atmosphere/environment that does not intimidate users with difficult visuals or information form the get-go. 
+![image](https://user-images.githubusercontent.com/100454212/222329702-19ab642b-b1ab-49ce-b40d-661dc194a4db.png)
 
 NOTE: This last one is due 10 March, but start now
 EX04_01 – Pick one small piece of functionality, and implement it. 
