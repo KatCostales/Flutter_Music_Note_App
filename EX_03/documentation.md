@@ -7,28 +7,28 @@ EX03_02 – Break down your application from a high level to some specific parts
 <br />&emsp;    o	Main feature of application
 <br />&emsp;    o	Listens for pitch (and possibly timing) of notes played on a given instrument
 <br />•	Auto transcriber
-<br />    o	Records what the listener receives into sheet music 
+<br />&emsp;    o	Records what the listener receives into sheet music 
 <br />•	Sheet music editor
-<br />    o	Allow user to manually modify and polish auto-transcribed music
+<br />&emsp;    o	Allow user to manually modify and polish auto-transcribed music
 <br />•	Flashcards
-<br />    o	Show user a note/chord on the music staff for the user to play
-<br />    o	Listen for the correct notes played
+<br />&emsp;    o	Show user a note/chord on the music staff for the user to play
+<br />&emsp;    o	Listen for the correct notes played
 <br />•	Daily challenges
-<br />    o	Way for users to stay engaged with app
-<br />    o	Include flashcards (for beginners)
-<br />    o	Music writing challenges (for more advanced users)
+<br />&emsp;    o	Way for users to stay engaged with app
+<br />&emsp;    o	Include flashcards (for beginners)
+<br />&emsp;    o	Music writing challenges (for more advanced users)
 <br />•	Data storage
-<br />    o	Store user’s scores on the server
+<br />&emsp;    o	Store user’s scores on the server
 <br />•	User data
-<br />    o	Store user’s account information in 
+<br />&emsp;    o	Store user’s account information in 
 <br />•	Push notifications
-<br />    o	Notify users of new challenges, updates, etc.
+<br />&emsp;    o	Notify users of new challenges, updates, etc.
 <br />•	Offline mode
-<br />    o	Allow users to create and modify scores offline and save them on their device until a network becomes available
+<br />&emsp;    o	Allow users to create and modify scores offline and save them on their device until a network becomes available
 <br />•	Correct note detection
-<br />    o	Given a score, listen to a user playing and determine if they played the right notes or not
+<br />&emsp;    o	Given a score, listen to a user playing and determine if they played the right notes or not
 <br />•	Instrument calibration
-<br />    o	If an instrument is out of tune, allow user to calibrate the app by listening to the pitch of each played note and comparing it to the correct pitch of the             actual note
+<br />&emsp;    o	If an instrument is out of tune, allow user to calibrate the app by listening to the pitch of each played note and comparing it to the correct pitch of the actual note
 
 EX03_03 – Start brainstorming ideas on how to solve the problem you’re working on. No idea is off limits. Once you have enough ideas, come up with a plan to test them (e.g. How will you test? In what order?).
 
