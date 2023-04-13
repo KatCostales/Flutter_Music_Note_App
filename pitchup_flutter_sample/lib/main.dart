@@ -86,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     setState(() {
       note = "";
-      status = "Play something";
+      status = "Start Recording";
     });
   }
 
@@ -95,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     setState(() {
       note = "";
-      status = "Click on start";
+      status = "Click Start to Record";
     });
   }
 
