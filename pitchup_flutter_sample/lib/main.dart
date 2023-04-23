@@ -152,52 +152,55 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+
 class _MyHomePageState extends State<MyHomePage> {
 
   var selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     Widget page;
     switch (selectedIndex) {
       case 0:
-        page = GeneratorPage();
+        page = HomePage();
         break;
       case 1:
-        page = Placeholder();
+        page = FlashcardPage();
         break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');
     }
     return Scaffold(
-      body: Row(
+      body: Column(
         children: [
-          SafeArea(
-            child: NavigationRail(
-              extended: true,
-              destinations: [
-                NavigationRailDestination(
-                  icon: Icon(Icons.home),
-                  label: Text('Home'),
+          Expanded(
+            child: SafeArea(
+                child: Container(
+                  color: Theme.of(context).colorScheme.primaryContainer,
+                  child: page,
                 ),
-                NavigationRailDestination(
-                  icon: Icon(Icons.favorite),
-                  label: Text('Favorites'),
-                ),
-              ],
-              selectedIndex: selectedIndex,
-              onDestinationSelected: (value) {
-                setState(() {
-                  selectedIndex = value;
-                });
-              },
             ),
           ),
-          Expanded(
-            child: Container(
-              color: Theme.of(context).colorScheme.primaryContainer,
-              child: page,
-            ),
+          BottomNavigationBar(
+            elevation: 0,
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Home'
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.auto_stories_outlined),
+                label: 'Flashcards',
+              ),
+            ],
+            currentIndex: selectedIndex,
+            onTap: _onItemTapped,
           ),
         ],
       ),
@@ -206,7 +209,8 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 
-class GeneratorPage extends StatelessWidget {
+
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
@@ -246,6 +250,34 @@ class GeneratorPage extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class FlashcardPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var appState = context.watch<MyAppState>();
+    var pair = appState.current;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text('Flashcards', textAlign: TextAlign.center, textScaleFactor: 3, style: TextStyle(color: Theme.of(context).colorScheme.primary)),
+        ElevatedButton(
+          onPressed: () {print('music notes');},
+          child: const Text('Music Notes'),
+        ),
+        ElevatedButton(
+          onPressed: () {print('intervals');},
+          child: const Text('Intervals'),
+        ),
+        ElevatedButton(
+          onPressed: () {print('symbols');},
+          child: const Text('Symbols'),
+        ),
+      ],
     );
   }
 }
