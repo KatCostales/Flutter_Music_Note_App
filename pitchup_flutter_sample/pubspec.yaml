@@ -14,6 +14,16 @@ dependencies:
 
   english_words: ^4.0.0
   provider: ^6.0.0
+  persistent_bottom_nav_bar: ^5.0.2
+  permission_handler: ^10.2.0
+  analyzer_plugin: ^0.11.2
+  pitchupdart: ^0.0.2
+  flutter_audio_capture: ^1.1.4
+  pitch_detector_dart: ^0.0.2
+  shared_preferences: ^2.1.0
+
+  # freezed_annotation: ^0.14.1
+  # json_annotation: ^4.0.1
 
 dev_dependencies:
   flutter_test:
@@ -21,7 +31,16 @@ dev_dependencies:
 
   flutter_lints: ^2.0.0
 
+  # freezed: ^0.14.1+2
+  # json_serializable: ^4.1.0
+
+fonts:
+  family: OpenSans
+  asset: fonts/OpenSans-VariableFont_wdth,wght.ttf
+
 flutter:
   uses-material-design: true
+  assets:
+    - assets/
 
   
