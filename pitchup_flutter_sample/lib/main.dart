@@ -62,9 +62,9 @@ String calculateNote(double pitch) {
   return "N/A";
 }
 
-//Step 1  ---- Step 7:
+//Step 1  ---- Step 7:Cite: My first flutter app
 //Myapp sets up the whole app
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget {   //Stateless widget, unchanging
   const MyApp({super.key});
 
   @override
@@ -87,7 +87,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-//MyAppState class defines the app's state. It defined the data the app need to function
+//MyAppState class defines the app's state. It defined the data the app needs to function
 class MyAppState extends ChangeNotifier {
   //ChangeNotifier means that is can notify others about its own changes
   var current = WordPair.random(); //Generates random word pair from library
@@ -114,7 +114,7 @@ class MyAppState extends ChangeNotifier {
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatefulWidget {   //stateful widgets can be changed throughout app interactions
   const MyHomePage({Key? key}) : super(key: key);
 
   @override
@@ -172,6 +172,8 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
 
 class HomePage extends StatelessWidget {
   @override
