@@ -6,12 +6,19 @@ import 'package:analyzer_plugin/utilities/pair.dart';
 
 import 'package:flutter_audio_capture/flutter_audio_capture.dart';
 import 'package:pitch_detector_dart/pitch_detector.dart';
-//Edits
+
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'notes_images.dart';
+
+//Imports for UI Landing Page
+// import 'package:argo/argo.dart';
+// import 'app/presenter/index_page_provider.dart';
+// import 'config/router/router.dart';
+// import 'config/theme/theme.dart';
+// import 'core/navigator.dart';
 
 ///
 /// Example code from https://github.com/techpotatoes/pitchup_flutter_sample
@@ -19,6 +26,10 @@ import 'notes_images.dart';
 ///
 
 void main() {
+// runApp(ChangeNotifierProvider(
+//   create: (_) => index_page_provider(),)
+//   child:MyApp(),
+// );
   runApp(const MyApp());
 }
 
@@ -47,10 +58,12 @@ String calculateNote(double pitch) {
     exponent = log(pitch / baseNotes[i].first) /
         log(2); // Use logarithms to get the base 2 exponent from pitch
     reducedExponent = exponent;
+
     // Reduce exponent to value closest to either 0 (if pitch is slightly flat) or -1 (if pitch is slightly sharp)
     while (reducedExponent > 0) {
       reducedExponent -= 1;
     }
+
     // If reduced exponent is just below 0 or just above -1, update note and octave and return the note being played
     if (reducedExponent > -0.01 || reducedExponent < -0.99) {
       note = baseNotes[i].last;
@@ -64,7 +77,8 @@ String calculateNote(double pitch) {
 
 //Step 1  ---- Step 7:Cite: My first flutter app
 //Myapp sets up the whole app
-class MyApp extends StatelessWidget {   //Stateless widget, unchanging
+class MyApp extends StatelessWidget {
+  //Stateless widget, unchanging
   const MyApp({super.key});
 
   @override
@@ -90,31 +104,21 @@ class MyApp extends StatelessWidget {   //Stateless widget, unchanging
 //MyAppState class defines the app's state. It defined the data the app needs to function
 class MyAppState extends ChangeNotifier {
   //ChangeNotifier means that is can notify others about its own changes
-  var current = WordPair.random(); //Generates random word pair from library
+  final random = Random();
   var currentNote = NoteImage.random();
   void getNext() {
-    current = WordPair.random();
     var temp = NoteImage.random();
     while (temp == currentNote) {
       temp = NoteImage.random();
+      //temp = NoteImage.random();
     }
     currentNote = temp;
     notifyListeners(); // a method of Change Notifier that ensures that anyone watching MyAppState is notified
   }
-
-  var favorites = <WordPair>[];
-
-  void toggleFavorite() {
-    if (favorites.contains(current)) {
-      favorites.remove(current);
-    } else {
-      favorites.add(current);
-    }
-    notifyListeners();
-  }
 }
 
-class MyHomePage extends StatefulWidget {   //stateful widgets can be changed throughout app interactions
+class MyHomePage extends StatefulWidget {
+  //stateful widgets can be changed throughout app interactions
   const MyHomePage({Key? key}) : super(key: key);
 
   @override
@@ -135,7 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Widget page;
     switch (selectedIndex) {
       case 0:
-        page = HomePage();
+        page = LandingPage();
         break;
       case 1:
         page = FlashcardPage();
@@ -173,64 +177,98 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
+class LandingPage extends StatelessWidget {
+  final String image = "assets/Green_and_White_Music_Logo.png"; //Melody logo
+  final String logo =
+      "assets/Grey_Aesthetic_Music_Mood_Instagram_Post.png"; //melody music player
 
-
-class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
-    var pair = appState.current;
-
-    IconData icon;
-    if (appState.favorites.contains(pair)) {
-      icon = Icons.favorite;
-    } else {
-      icon = Icons.favorite_border;
-    }
-
     return Scaffold(
-      body: Column(children: [
-        TextField(onSubmitted: (String value) async {
-          String result;
-          if (value == pair.asCamelCase) {
-            result = 'Correct!';
-          } else {
-            result = 'Incorrect!';
-          }
-          await showDialog<void>(
-            context: context,
-            builder: (BuildContext context) {
-              return AlertDialog(
-                title: Text(result),
-                content: Text(
-                    'You typed "$value", which has length ${value.characters.length}.'),
-                actions: <Widget>[
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: const Text('OK'),
-                  ),
-                ],
-              );
-            },
-          );
-        }),
-
-        // Container for
-        // Container(
-        //   ch
-        //   width: double.infinity,
-        //   height: double.infinity,
-        //   margin: const EdgeInsets.all(10.0),
-        //   decoration: BoxDecoration(
-        //     image: DecorationImage(
-        //         image: AssetImage('assets/pianoSheetMusic.jpg')),
-        //   ),
-        // )
-        Image.asset('assets/c4.png'), //add image code
-      ]),
-    );
+        body: Stack(children: <Widget>[
+      Container(
+          alignment: Alignment.center,
+          child: Image.asset(
+            logo,
+            fit: BoxFit.contain,
+          )), // Container
+      Column(
+        children: <Widget>[
+          SizedBox(height: 20.0),
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(100.0),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.black38,
+                        offset: Offset(3.0, 3.0),
+                        blurRadius: 5.0)
+                  ]),
+              margin: EdgeInsets.all(48.0),
+              child: Column(
+                children: <Widget>[
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage(image),
+                              fit: BoxFit.cover), //Decoration Image
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20.0),
+                            topRight: Radius.circular(20.0),
+                          ) // Border Radius only
+                          ), //Box Decoration
+                    ), //Container
+                  ), //expanded
+                ], // children, widget
+              ), // child, column
+            ), // child, container
+          ), //expanded
+          // SizedBox(height: 30.0),
+          // Text(
+          //   "Melody",
+          //   style: TextStyle(
+          //     color: Colors.black,
+          //     fontSize: 24.0,
+          //     // backgroundColor: Colors.white,
+          //   ),
+          // ), // user introduction
+          SizedBox(height: 10.0),
+          Card(
+            color: Color.fromARGB(255, 255, 255, 255),
+            child: Text(
+              "With our versatile music learning app, musicians, beginner or seasoned pro, are able to hone their musical talents to another level",
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.black, fontSize: 18.0),
+            ),
+          ),
+          SizedBox(height: 40.0),
+          // Container(
+          //   padding: const EdgeInsets.symmetric(horizontal: 80.0),
+          //   width: double.infinity,
+          //   child: ElevatedButton(
+          //     style: ElevatedButton.styleFrom(
+          //       foregroundColor: Colors.black,
+          //       backgroundColor: Colors.white,
+          //       padding: const EdgeInsets.all(16.0),
+          //       shape: RoundedRectangleBorder(
+          //           borderRadius: BorderRadius.circular(40.0)),
+          //     ),
+          //     onPressed: () {},
+          //     child: Text(
+          //       "Start Now",
+          //       style: TextStyle(fontWeight: FontWeight.w300, fontSize: 18.0),
+          //     ),
+          //   ),
+          // ),
+        ],
+      ),
+      SizedBox(
+        height: 20.0,
+      ),
+    ]));
   }
 }
 
@@ -391,8 +429,8 @@ class BigCard extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Card(
-      elevation: 1,
-      color: theme.colorScheme.primary,
+      elevation: 0,
+      color: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(50),
         child: note,
