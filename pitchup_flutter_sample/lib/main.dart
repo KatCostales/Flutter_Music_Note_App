@@ -14,11 +14,11 @@ import 'package:provider/provider.dart';
 import 'notes_images.dart';
 
 //Imports for UI Landing Page
-// import 'package:argo/argo.dart';
-// import 'app/presenter/index_page_provider.dart';
-// import 'config/router/router.dart';
-// import 'config/theme/theme.dart';
-// import 'core/navigator.dart';
+import 'package:argo/argo.dart';
+import 'app/presenter/index_page_provider.dart';
+import 'config/router/router.dart';
+import 'config/theme/theme.dart';
+import 'core/navigator/navigator.dart';
 
 ///
 /// Example code from https://github.com/techpotatoes/pitchup_flutter_sample
