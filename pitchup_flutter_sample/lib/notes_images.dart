@@ -8,6 +8,6 @@ final _random = Random();
 
 class NoteImage {
   static Pair random() {
-    return _notes[_random.nextInt(_notes.length-1)];
+    return _notes[_random.nextInt(_notes.length)];
   }
 }
