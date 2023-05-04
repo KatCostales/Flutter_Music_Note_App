@@ -60,7 +60,7 @@ class JRouterConfiguration implements IConfigNavigator {
         key: state.pageKey,
         child: const Scaffold(
           body: SizedBox(
-            child: Text('ERROROR'),
+            child: Text('ERROR'),
           ),
         ),
       ),

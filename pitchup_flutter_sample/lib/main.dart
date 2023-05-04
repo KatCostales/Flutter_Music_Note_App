@@ -15,7 +15,7 @@ import 'notes_images.dart';
 
 //Imports for UI Landing Page
 import 'package:argo/argo.dart';
-import 'app/presenter/indexPageProvider.dart';
+import 'app/presenter/index_page_provider.dart';
 import 'config/router/router.dart';
 import 'config/theme/theme.dart';
 import 'core/navigator/navigator.dart';
@@ -27,10 +27,10 @@ import 'core/navigator/navigator.dart';
 
 void main() {
 // runApp(ChangeNotifierProvider(
-//   create: (_) => index_page_provider(),)
-//   child:MyApp(),
+//   create: (_) => index_page_provider(),
+//   child:const MyApp(),
 // );
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 // Start of Pitch Up Code
@@ -78,12 +78,16 @@ String calculateNote(double pitch) {
 //Step 1  ---- Step 7:Cite: My first flutter app
 //Myapp sets up the whole app
 class MyApp extends StatelessWidget {
-  //Stateless widget, unchanging
-  const MyApp({super.key});
+  MyApp({Key? key}) : super(key: key);
+
+  final exaRouter = JRouter();
+//Stateless widget, unchanging
+  // const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     Permission.microphone.request();
+
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
@@ -100,6 +104,22 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+final _wrapConfig = WrapperConfig(
+  globalBreakpoints: ScreenBreakpoints.values(
+    mobile: const SBValue.max(650),
+    tablet: const SBValue.max(1200),
+    desktop: const SBValue.inf(),
+  ),
+);
+
+final _responsiveTheme = ResponsiveTheme.screen(
+  conditionScreen: ConditionScreen(
+    mobile: AppTheme(),
+    tablet: AppTheme(),
+    desktop: WebTheme(),
+  ),
+);
 
 //MyAppState class defines the app's state. It defined the data the app needs to function
 class MyAppState extends ChangeNotifier {
@@ -324,11 +344,12 @@ class _NotesRouteState extends State<NotesRoute> {
   var note = "";
   var status = "Click on start";
 
-  // Flipping animation 
-  bool isBack = true;
+  // Flipping animation stuff
+  bool isBack = false;
   double angle = 0;
 
-  void _flip(){
+  // change angle of card
+  void _flip() {
     setState(() {
       angle = (angle + pi) % (2 * pi);
     });
@@ -401,9 +422,54 @@ class _NotesRouteState extends State<NotesRoute> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        BigCard(
-          note: noteImage.first,
+        GestureDetector(
+          onTap: _flip,
+          child: TweenAnimationBuilder(
+              tween: Tween<double>(begin: 0, end: angle),
+              duration: const Duration(seconds: 1),
+              builder: (BuildContext context, double val, __) {
+                if (val >= (pi / 2)) {
+                  isBack = true;
+                } else {
+                  isBack = false;
+                }
+                return (Transform(
+                    alignment: Alignment.center,
+                    transform: Matrix4.identity()
+                      ..setEntry(3, 2, 0.001) // add perspective to the card
+                      ..rotateY(val), // allow us to rotate the card
+                    child: Transform(
+                        alignment: Alignment.center,
+                        transform: Matrix4.identity()..rotateY(pi),
+                        child: SizedBox(
+                          width: 309,
+                          height: 474,
+                          child: isBack
+                              ? BigCard(note: noteImage.first)
+                              : Container(
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                  child: Transform(
+                                    alignment: Alignment.center,
+                                    transform: Matrix4.identity()..rotateY(pi),
+                                    child: Card(
+                                      elevation: 0,
+                                      color: Colors.white,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(50),
+                                        child: Text(noteImage.last),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                        ))));
+              }),
         ),
+        // BigCard(
+        //   note: noteImage.first,
+        // ),
         SizedBox(height: 10),
         Center(
           child: Row(
@@ -431,7 +497,7 @@ class BigCard extends StatelessWidget {
     // required void Function(String note, String noteImageName) onIsEqual,
   });
 
-  final Image note;
+  final Image? note;
   // final void isEqual;
 
   @override
