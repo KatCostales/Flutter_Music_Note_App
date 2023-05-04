@@ -2,7 +2,7 @@ import 'package:argo/argo.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 // libraries needed based on reference 
-import 'app/presenter/index_page_provider.dart';
+import 'app/presenter/indexPageProvider.dart';
 import 'config/router/router.dart';
 import 'config/theme/theme.dart';
 import 'core/navigator/navigator.dart';

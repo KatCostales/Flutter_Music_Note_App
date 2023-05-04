@@ -15,7 +15,7 @@ import 'notes_images.dart';
 
 //Imports for UI Landing Page
 import 'package:argo/argo.dart';
-import 'app/presenter/index_page_provider.dart';
+import 'app/presenter/indexPageProvider.dart';
 import 'config/router/router.dart';
 import 'config/theme/theme.dart';
 import 'core/navigator/navigator.dart';
@@ -47,7 +47,7 @@ String calculateNote(double pitch) {
     Pair(27.50, "A"),
     Pair(30.87, "B")
   ];
-  double exponent = 0; // The exponent 2 is raised to in order to match pitch
+  double exponent = 0; // The exponent is raised to in order to match pitch
   double reducedExponent = 0; // exponent reduced to below 0
   int octave = 0;
   String note = "";
@@ -323,6 +323,16 @@ class _NotesRouteState extends State<NotesRoute> {
 
   var note = "";
   var status = "Click on start";
+
+  // Flipping animation 
+  bool isBack = true;
+  double angle = 0;
+
+  void _flip(){
+    setState(() {
+      angle = (angle + pi) % (2 * pi);
+    });
+  }
 
   void listener(dynamic obj) {
     //Gets the audio sample
