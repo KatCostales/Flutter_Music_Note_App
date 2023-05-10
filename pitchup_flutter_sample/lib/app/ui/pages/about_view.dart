@@ -22,6 +22,17 @@ class AboutView extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            child Text (
+              'Welcome to Melody! A learning tool towards reading sheet music and honing your musical talents',
+              style: GoogleFonts.montserratAlternates(
+                fontSize: 40,
+                fontWeight: FontWeight.w300,  //makes text lighter
+              ),
+            body: new Container(      // add image
+            color: Colors.grey[200],
+            child: new Image.asset('assets/pianoSheetMusic.jpg'),
+            alignment: Alignment.center,
+            )
           ),
         ),
       ),

@@ -105,22 +105,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-final _wrapConfig = WrapperConfig(
-  globalBreakpoints: ScreenBreakpoints.values(
-    mobile: const SBValue.max(650),
-    tablet: const SBValue.max(1200),
-    desktop: const SBValue.inf(),
-  ),
-);
-
-final _responsiveTheme = ResponsiveTheme.screen(
-  conditionScreen: ConditionScreen(
-    mobile: AppTheme(),
-    tablet: AppTheme(),
-    desktop: WebTheme(),
-  ),
-);
-
 //MyAppState class defines the app's state. It defined the data the app needs to function
 class MyAppState extends ChangeNotifier {
   //ChangeNotifier means that is can notify others about its own changes
@@ -265,24 +249,6 @@ class LandingPage extends StatelessWidget {
             ),
           ),
           SizedBox(height: 40.0),
-          // Container(
-          //   padding: const EdgeInsets.symmetric(horizontal: 80.0),
-          //   width: double.infinity,
-          //   child: ElevatedButton(
-          //     style: ElevatedButton.styleFrom(
-          //       foregroundColor: Colors.black,
-          //       backgroundColor: Colors.white,
-          //       padding: const EdgeInsets.all(16.0),
-          //       shape: RoundedRectangleBorder(
-          //           borderRadius: BorderRadius.circular(40.0)),
-          //     ),
-          //     onPressed: () {},
-          //     child: Text(
-          //       "Start Now",
-          //       style: TextStyle(fontWeight: FontWeight.w300, fontSize: 18.0),
-          //     ),
-          //   ),
-          // ),
         ],
       ),
       SizedBox(
@@ -514,129 +480,3 @@ class BigCard extends StatelessWidget {
     );
   }
 }
-////Step 1  ---- Step 7 Stated above
-
-//   @override
-//   Widget build(BuildContext context) {
-//     Permission.microphone.request();  // Request microphone permission
-//     return MaterialApp(
-//       title: 'Flutter Demo',
-//       // theme: ThemeData(
-//       //   primarySwatch: const Color.fromARGB(255, 210, 224, 157),
-//       // ],
-//       theme: ThemeData(primarySwatch:Colors.lightBlue),
-//       home: const MyHomePage(title: 'Flutter Demo Home Page'),
-//     );
-//   }
-
-// }
-
-// class MyHomePage extends StatefulWidget {
-//   const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-//   final String title;
-
-//   @override
-//   State<MyHomePage> createState() => _MyHomePageState();
-
-// }
-
-// // ...
-// class _MyHomePageState extends State<MyHomePage> {
-//   final _audioRecorder = FlutterAudioCapture();
-//   final pitchDetectorDart = PitchDetector(44100, 2000);
-//   final pitchupDart = PitchHandler(InstrumentType.guitar);
-
-//   var note = "";
-//   var status = "Click on start";
-
-//   Future<void> _startCapture() async {
-//     await _audioRecorder.start(listener, onError,
-//         sampleRate: 44100, bufferSize: 3000);
-
-//     setState(() {
-//       note = "";
-//       status = "Start Recording";
-//     });
-//   }
-
-//   Future<void> _stopCapture() async {
-//     await _audioRecorder.stop();
-
-//     setState(() {
-//       note = "";
-//       status = "Click Start to Record";
-//     });
-//   }
-
-//   void listener(dynamic obj) {
-//     //Gets the audio sample
-//     var buffer = Float64List.fromList(obj.cast<double>());
-//     final List<double> audioSample = buffer.toList();
-
-//     //Uses pitch_detector_dart library to detect a pitch from the audio sample
-//     final result = pitchDetectorDart.getPitch(audioSample);
-
-//     //If there is a pitch - evaluate it
-//     if (result.pitched) {
-//       //Uses the pitchupDart library to check a given pitch for a Guitar
-//       //final handledPitchResult = pitchupDart.handlePitch(result.pitch);
-
-//       //Updates the state with the result
-//       setState(() {
-//         //note = getNote(result.pitch);
-//         note = getNote(result.pitch);
-//         //status = handledPitchResult.tuningStatus.toString();
-//         status = result.pitch.toString();
-//       });
-//     }
-//   }
-
-//   void onError(Object e) {
-//     //print(e);
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text(widget.title),
-//       ),
-//       body: Center(
-//         child: Column(children: [
-//           Center(
-//               child: Text(
-//             note,
-//             style: const TextStyle(
-//                 color: Colors.black87,
-//                 fontSize: 25.0,
-//                 fontWeight: FontWeight.bold),
-//           )),
-//           const Spacer(),
-//           Center(
-//               child: Text(
-//             status,
-//             style: const TextStyle(
-//                 color: Colors.black87,
-//                 fontSize: 14.0,
-//                 fontWeight: FontWeight.bold),
-//           )),
-//           Expanded(
-//               child: Row(
-//             children: [
-//               Expanded(
-//                   child: Center(
-//                       child: FloatingActionButton(
-//                           onPressed:
-//                             _startCapture, child: const Text("Start")))),
-//               Expanded(
-//                   child: Center(
-//                       child: FloatingActionButton(
-//                           onPressed: _stopCapture, child: const Text("Stop")))),
-//             ],
-//           ))
-//         ]),
-//       ),
-//     );
-//   }
-// }

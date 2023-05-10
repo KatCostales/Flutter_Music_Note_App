@@ -21,6 +21,10 @@ class HomeView extends StatelessWidget {
                 fontSize: 80,
                 fontWeight: FontWeight.bold,
               ),
+              body: new Container(      // add image
+            color: Colors.grey[200],
+            child: new Image.asset('assets/Green_and_White_Music_Logo.png'),
+            alignment: Alignment.center,
             ),
           ),
         ),
