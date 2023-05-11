@@ -22,14 +22,14 @@ final itemsPage = [
       icon: Icons.contact_page_sharp),
   HeaderItemUIModel(
     id: 3,
-    title: 'Location',
-    route: '/location',
+    title: 'Solutions',
+    route: '/solutions',
     icon: Icons.location_on,
   ),
   HeaderItemUIModel(
     id: 4,
-    title: 'Other',
-    route: '/other',
+    title: 'Tools',
+    route: '/tools',
     icon: Icons.abc_sharp,
   ),
 ];

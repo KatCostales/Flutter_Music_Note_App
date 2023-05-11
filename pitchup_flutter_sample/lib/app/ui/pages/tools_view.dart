@@ -15,7 +15,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:argo/argo.dart';
 
 import '../../../main.dart';
-
+import '../../../notes_images.dart';
+import '../../presenter/index_page_provider.dart';
 
 String calculateNote(double pitch) {
   // notes in order: C0, D0, E0, F0, G0, A0, B0
@@ -57,6 +58,21 @@ String calculateNote(double pitch) {
   return "N/A";
 }
 
+// class IndexPageProvider extends ChangeNotifier {
+//   //ChangeNotifier means that is can notify others about its own changes
+//   final random = Random();
+//   var currentNote = NoteImage.random();
+//   void getNext() {
+//     var temp = NoteImage.random();
+//     while (temp == currentNote) {
+//       temp = NoteImage.random();
+//       //temp = NoteImage.random();
+//     }
+//     currentNote = temp;
+//     notifyListeners(); // a method of Change Notifier that ensures that anyone watching IndexPageProvider is notified
+//   }
+// }
+
 class OtherView extends StatelessWidget {
   const OtherView({Key? key}) : super(key: key);
 
@@ -82,7 +98,6 @@ class OtherView extends StatelessWidget {
     );
   }
 }
-
 
 class FlashcardPage extends StatelessWidget {
   //NotesRoute notesRoute = const NotesRoute();
@@ -192,7 +207,7 @@ class _NotesRouteState extends State<NotesRoute> {
 
   @override
   Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
+    var appState = context.watch<IndexPageProvider>();
     var noteImage = appState.currentNote;
     var isEqual = note == noteImage.last;
 

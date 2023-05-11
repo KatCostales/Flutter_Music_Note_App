@@ -9,8 +9,8 @@ import 'package:pitchupfluttersample/app/presenter/index_page_provider.dart';
 import 'package:pitchupfluttersample/app/ui/pages/about_view.dart';
 import 'package:pitchupfluttersample/app/ui/pages/home_view.dart';
 import 'package:pitchupfluttersample/app/ui/pages/contact_view.dart';
-import 'package:pitchupfluttersample/app/ui/pages/location_view.dart';
-import 'package:pitchupfluttersample/app/ui/pages/other_view.dart';
+import 'package:pitchupfluttersample/app/ui/pages/solutions_view.dart';
+import 'package:pitchupfluttersample/app/ui/pages/tools_view.dart';
 
 import 'widgets/side_menu_widget.dart';
 import 'widgets/topbar_widget.dart';
@@ -43,12 +43,12 @@ class _IndexPageState extends State<IndexPage> {
         controller: indexPageProvider.controller,
         scrollDirection:
             PlatformInfo.isMobile ? Axis.horizontal : Axis.vertical,
-        children: const [
+        children: [
           HomeView(),
           AboutView(),
           ContactView(),
           LocationView(),
-          OtherView(),
+          FlashcardPage(),
         ],
       ),
     );

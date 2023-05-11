@@ -1,8 +1,12 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:pitchupfluttersample/app/ui/core/header_item_uim.dart';
 import 'package:pitchupfluttersample/app/presenter/items_page.dart';
 
 import 'package:universal_html/html.dart';
+
+import '../../notes_images.dart';
 
 class IndexPageProvider extends ChangeNotifier {
   IndexPageProvider() {
@@ -17,6 +21,18 @@ class IndexPageProvider extends ChangeNotifier {
 
   List<HeaderItemUIModel> get items => _items;
   PageController get controller => _controller;
+
+  final random = Random();
+  var currentNote = NoteImage.random();
+  void getNext() {
+    var temp = NoteImage.random();
+    while (temp == currentNote) {
+      temp = NoteImage.random();
+      //temp = NoteImage.random();
+    }
+    currentNote = temp;
+    notifyListeners(); // a method of Change Notifier that ensures that anyone watching MyAppState is notified
+  }
 
   void onToggleItem(int id) {
     if (_items[id].isSelected) return;
