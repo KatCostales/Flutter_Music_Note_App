@@ -10,31 +10,62 @@ class AboutView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ColoredBox(
       color: Colors.white,
-      child: Center(
-        child: FittedBox(
-          fit: BoxFit.contain,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              'About',
-              style: GoogleFonts.montserratAlternates(
-                fontSize: 80,
-                fontWeight: FontWeight.bold,
+      // child: Center(
+      //   child: FittedBox(
+      //     fit: BoxFit.contain,
+      //     child: Padding(
+      //       padding: const EdgeInsets.all(8.0),
+      //       // child: Text(
+      //       //   'About',
+      //       //   style: GoogleFonts.montserratAlternates(
+      //       //     fontSize: 80,
+      //       //     fontWeight: FontWeight.bold,
+      //       //   ),
+      //       // ),
+      //       child: Text (
+      //         'Welcome to Melody! A learning tool towards reading sheet music and honing your musical talents',
+      //         style: GoogleFonts.montserratAlternates(
+      //           fontSize: 40,
+      //           fontWeight: FontWeight.w300,  //makes text lighter
+      //         ),
+      //       body: new Container(      // add image
+      //       color: Colors.grey[200],
+      //       child: new Image.asset('assets/pianoSheetMusic.jpg'),
+      //       alignment: Alignment.center,
+      //       ),
+      //       ),
+      //     ),
+      //   ),
+      // ),
+      child: Column(
+        children: [
+          FittedBox(
+            fit: BoxFit.contain,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'About',
+                style: GoogleFonts.montserratAlternates(
+                  fontSize: 80,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-            child Text (
-              'Welcome to Melody! A learning tool towards reading sheet music and honing your musical talents',
-              style: GoogleFonts.montserratAlternates(
-                fontSize: 40,
-                fontWeight: FontWeight.w300,  //makes text lighter
-              ),
-            body: new Container(      // add image
-            color: Colors.grey[200],
-            child: new Image.asset('assets/pianoSheetMusic.jpg'),
-            alignment: Alignment.center,
-            )
           ),
-        ),
+          Text(
+            'Welcome to Melody! A learning tool towards reading sheet music and honing your musical talents',
+            style: GoogleFonts.montserratAlternates(
+              fontSize: 40,
+              fontWeight: FontWeight.w300, //makes text lighter
+            ),
+          ),
+          Container(
+            // add image
+            color: Colors.grey[200],
+            alignment: Alignment.center,
+            child: Image.asset('assets/pianoSheetMusic.jpg'),
+          ),
+        ],
       ),
     );
   }

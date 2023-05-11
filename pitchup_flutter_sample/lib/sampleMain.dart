@@ -1,11 +1,17 @@
-import 'package:argo/argo.dart';
+import 'dart:math';
+import 'package:analyzer_plugin/utilities/pair.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-// libraries needed based on reference 
+
+import 'notes_images.dart';
+
+//Imports for UI Landing Page
+import 'package:argo/argo.dart';
 import 'app/presenter/index_page_provider.dart';
 import 'config/router/router.dart';
 import 'config/theme/theme.dart';
 import 'core/navigator/navigator.dart';
+
 
 void main() {
   runApp(ChangeNotifierProvider(
@@ -35,6 +41,21 @@ class MyApp extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class MyAppState extends ChangeNotifier {
+  //ChangeNotifier means that is can notify others about its own changes
+  final random = Random();
+  var currentNote = NoteImage.random();
+  void getNext() {
+    var temp = NoteImage.random();
+    while (temp == currentNote) {
+      temp = NoteImage.random();
+      //temp = NoteImage.random();
+    }
+    currentNote = temp;
+    notifyListeners(); // a method of Change Notifier that ensures that anyone watching MyAppState is notified
   }
 }
 
@@ -92,20 +113,4 @@ String calculateNote(double pitch) {
     }
   }
   return "N/A";
-}
-
-//MyAppState class defines the app's state. It defined the data the app needs to function
-class MyAppState extends ChangeNotifier {
-  //ChangeNotifier means that is can notify others about its own changes
-  final random = Random();
-  var currentNote = NoteImage.random();
-  void getNext() {
-    var temp = NoteImage.random();
-    while (temp == currentNote) {
-      temp = NoteImage.random();
-      //temp = NoteImage.random();
-    }
-    currentNote = temp;
-    notifyListeners(); // a method of Change Notifier that ensures that anyone watching MyAppState is notified
-  }
 }

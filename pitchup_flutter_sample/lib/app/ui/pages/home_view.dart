@@ -9,26 +9,27 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
-      color: Colors.white,
-      child: Center(
-        child: FittedBox(
-          fit: BoxFit.contain,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              'Home',
-              style: GoogleFonts.montserratAlternates(
-                fontSize: 80,
-                fontWeight: FontWeight.bold,
+        color: Colors.white,
+        child: Column(children: [
+          FittedBox(
+            fit: BoxFit.contain,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Home',
+                style: GoogleFonts.montserratAlternates(
+                  fontSize: 80,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              body: new Container(      // add image
-            color: Colors.grey[200],
-            child: new Image.asset('assets/Green_and_White_Music_Logo.png'),
-            alignment: Alignment.center,
             ),
           ),
-        ),
-      ),
-    );
+          Container(
+            // add image
+            color: Colors.grey[200],
+            alignment: Alignment.center,
+            child: Image.asset('assets/Green_and_White_Music_Logo.png'),
+          ),
+        ]));
   }
 }
