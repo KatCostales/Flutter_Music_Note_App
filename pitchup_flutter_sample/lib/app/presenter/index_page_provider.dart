@@ -24,6 +24,7 @@ class IndexPageProvider extends ChangeNotifier {
 
   final random = Random();
   var currentNote = NoteImage.random();
+  
   void getNext() {
     var temp = NoteImage.random();
     while (temp == currentNote) {

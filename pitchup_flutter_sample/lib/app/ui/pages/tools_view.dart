@@ -1,6 +1,6 @@
 //import 'dart:html';
+import 'dart:async';
 import 'dart:typed_data';
-import 'package:permission_handler/permission_handler.dart';
 import 'dart:math';
 import 'package:analyzer_plugin/utilities/pair.dart';
 
@@ -11,11 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-//Imports for UI Landing Page
-import 'package:argo/argo.dart';
-
-import '../../../main.dart';
-import '../../../notes_images.dart';
 import '../../presenter/index_page_provider.dart';
 
 String calculateNote(double pitch) {
@@ -155,6 +150,8 @@ class _NotesRouteState extends State<NotesRoute> {
   bool isBack = false;
   double angle = 0;
 
+  bool wrongNote = false;
+
   // change angle of card
   void _flip() {
     setState(() {
@@ -211,18 +208,32 @@ class _NotesRouteState extends State<NotesRoute> {
     var noteImage = appState.currentNote;
     var isEqual = note == noteImage.last;
 
+    double position = (MediaQuery.of(context).size.width *
+            MediaQuery.of(context).devicePixelRatio) /
+        2;
+
     if (note == "") {
       startCapture();
     }
-    if (!Navigator.canPop(context)) {
-      stopCapture();
-    }
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      if (!Navigator.canPop(context)) {
+        stopCapture();
+      }
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (isEqual) {
         appState.getNext();
       }
     });
+
+    if (note.length == 2 && !isEqual) {
+      wrongNote = true;
+    } else {
+      Timer(Duration(seconds: 1), () {
+        wrongNote = false;
+      });
+    }
 
     return Scaffold(
         body: Column(
@@ -236,47 +247,55 @@ class _NotesRouteState extends State<NotesRoute> {
               duration: const Duration(seconds: 1),
               builder: (BuildContext context, double val, __) {
                 if (val >= (pi / 2)) {
-                  isBack = true;
-                } else {
                   isBack = false;
+                } else {
+                  isBack = true;
                 }
                 return (Transform(
-                    alignment: Alignment.center,
-                    transform: Matrix4.identity()
-                      ..setEntry(3, 2, 0.001) // add perspective to the card
-                      ..rotateY(val), // allow us to rotate the card
-                    child: Transform(
-                        alignment: Alignment.center,
-                        transform: Matrix4.identity()..rotateY(pi),
-                        child: SizedBox(
-                          width: 309,
-                          height: 474,
-                          child: isBack
-                              ? BigCard(note: noteImage.first)
-                              : Container(
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Transform(
-                                    alignment: Alignment.center,
-                                    transform: Matrix4.identity()..rotateY(pi),
-                                    child: Card(
-                                      elevation: 0,
-                                      color: Colors.white,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(50),
-                                        child: Text(noteImage.last),
-                                      ),
-                                    ),
-                                  ),
+                  alignment: Alignment.center,
+                  transform: Matrix4.identity()
+                    ..setEntry(3, 2, 0.001) // add perspective to the card
+                    ..rotateY(val), // allow us to rotate the card
+                  child: SizedBox(
+                    width: 309,
+                    height: 474,
+                    child: isBack
+                        ? Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              BigCard(note: noteImage.first),
+                              AnimatedOpacity(
+                                duration: const Duration(seconds: 1),
+                                opacity: wrongNote ? 1.0 : 0.0,
+                                child: Align(
+                                  alignment: Alignment.topCenter,
+                                  child: Text('Try again!'),
                                 ),
-                        ))));
+                              ),
+                            ],
+                          )
+                        : Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            child: Transform(
+                              alignment: Alignment.center,
+                              transform: Matrix4.identity()..rotateY(pi),
+                              child: Card(
+                                elevation: 0,
+                                color: Colors.white,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(50),
+                                  child: Text(noteImage.last),
+                                ),
+                              ),
+                            ),
+                          ),
+                  ),
+                ));
               }),
         ),
-        // BigCard(
-        //   note: noteImage.first,
-        // ),
         SizedBox(height: 10),
         Center(
           child: Row(
