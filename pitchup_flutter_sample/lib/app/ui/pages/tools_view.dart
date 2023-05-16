@@ -144,6 +144,7 @@ class _NotesRouteState extends State<NotesRoute> {
   final pitchDetectorDart = PitchDetector(44100, 2000);
 
   var note = "";
+  var prevNote = "";
   var status = "Click on start";
 
   // Flipping animation stuff
@@ -208,10 +209,6 @@ class _NotesRouteState extends State<NotesRoute> {
     var noteImage = appState.currentNote;
     var isEqual = note == noteImage.last;
 
-    double position = (MediaQuery.of(context).size.width *
-            MediaQuery.of(context).devicePixelRatio) /
-        2;
-
     if (note == "") {
       startCapture();
     }
@@ -223,12 +220,17 @@ class _NotesRouteState extends State<NotesRoute> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (isEqual) {
+        prevNote = noteImage.last;
         appState.getNext();
       }
     });
 
-    if (note.length == 2 && !isEqual) {
+    if (note.length == 2 && !isEqual &&
+        note != prevNote) {
       wrongNote = true;
+      Timer(Duration(seconds: 1), () {
+        wrongNote = false;
+      });
     } else {
       Timer(Duration(seconds: 1), () {
         wrongNote = false;
@@ -328,8 +330,6 @@ class BigCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
     return Card(
       elevation: 0,
       color: Colors.white,
