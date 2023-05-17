@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pitchupfluttersample/config/values/colors.dart';
 
 import '../../../config/router/routes.dart';
 
@@ -24,17 +25,15 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Container(
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-            image: AssetImage("assets/Green_and_White_Music_Logo.png"),
-            fit: BoxFit.fill,
-          ))),
+          CircleAvatar(
+            backgroundImage: AssetImage('assets/logo.png'),
+          ),
           // Welcome!
           Text(
             'Welcome to Melody!',
             style: GoogleFonts.bebasNeue(
-              fontSize: 55,
+              fontSize: 40,
+              color: kBlackColor,
             ),
           ), // Text
 
@@ -46,15 +45,15 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.grey[200],
-                border: Border.all(color: Colors.white),
+                border: Border.all(color: Colors.black),
                 borderRadius: BorderRadius.circular(12),
               ), //Box Decoration
               child: Padding(
                 padding: const EdgeInsets.only(left: 20.0),
                 child: TextField(
                   decoration: InputDecoration(
-                    border: InputBorder.none,
                     hintText: 'Email',
+                    hintStyle: TextStyle(color: Colors.black),
                   ), // InputDecoration
                 ), //TextField
               ), //Padding
@@ -69,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.grey[200],
-                border: Border.all(color: Colors.white),
+                border: Border.all(color: Colors.black),
                 borderRadius: BorderRadius.circular(12),
               ), //Box Decoration
               child: Padding(
@@ -79,6 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: 'Password',
+                    hintStyle: TextStyle(color: Colors.black),
                   ), // InputDecoration
                 ), //TextField
               ), //Padding
@@ -103,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Text(
                   'Sign In',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.green[200],
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                   ), //TextStyle
@@ -123,7 +123,9 @@ class _LoginScreenState extends State<LoginScreen> {
               ), //TextStyle
             ), //Text
             TextButton(
-              onPressed: () {context.go('/signup');},
+              onPressed: () {
+                context.go('/signup');
+              },
               child: Text(
                 ' Register now',
                 style: TextStyle(

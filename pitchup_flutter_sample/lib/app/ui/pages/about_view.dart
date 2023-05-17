@@ -17,23 +17,25 @@ class AboutView extends StatelessWidget {
             fit: BoxFit.contain,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'About',
-                style: GoogleFonts.montserratAlternates(
-                  // mainAxisAlignment = MainAxisAlignment.center,
-                  color: Colors.black,
-                  fontSize: 80,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              // child: Text(
+              //   'About',
+              //   style: GoogleFonts.montserratAlternates(
+              //     // mainAxisAlignment = MainAxisAlignment.center,
+              //     color: Colors.black,
+              //     fontSize: 80,
+              //     fontWeight: FontWeight.bold,
+              //   ),
+              // ), // Text
             ),
           ),
-          Text(
-            'Welcome to Melody! A learning tool towards reading sheet music and honing your musical talents',
-            style: GoogleFonts.montserratAlternates(
-              color: Colors.black,
-              fontSize: 40,
-              fontWeight: FontWeight.w300, //makes text lighter
+          Center(
+            child: Text(
+              'Welcome to Melody! A learning tool towards reading sheet music and honing your musical talents',
+              style: GoogleFonts.montserratAlternates(
+                color: Colors.black,
+                fontSize: 20,
+                fontWeight: FontWeight.w300, //makes text lighter
+              ),
             ),
           ),
           Container(
@@ -41,13 +43,11 @@ class AboutView extends StatelessWidget {
             //color: Colors.grey[200],
             alignment: Alignment.center,
             width: MediaQuery.of(context).size.width,
-            height: 200,
+            height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
-              image:  DecorationImage(
-                fit:BoxFit.cover,
-                image: AssetImage('assets/pianoSheetMusic.jpg')
-              )
-            ),
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage('assets/pianoSheetMusic.jpg'))),
           ),
         ],
       ),

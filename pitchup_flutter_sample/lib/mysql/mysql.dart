@@ -9,7 +9,7 @@ class Mysql {
                 db = 'melody-1';
   static int port = 3306;
 
-  Mysql();
+//   Mysql();
 
   // Connect to database
   Future<MySqlConnection> getConnection() async {
