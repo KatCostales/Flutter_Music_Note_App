@@ -19,14 +19,18 @@ class AppTitleWidget extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const PointsDecorationWidget(
-                colors: [
-                 Colors.lightGreen,
-                  kCreamColor,
-                  kCreamColor,
-                  Colors.lightGreen,
-                ],
+              CircleAvatar(
+                backgroundImage: AssetImage('assets/logo.png'),
               ),
+        
+              // const PointsDecorationWidget(
+              //   colors: [
+              //    Colors.lightGreen,
+              //     kCreamColor,
+              //     kCreamColor,
+              //     Colors.lightGreen,
+                
+              
               ConditionalResponsiveWidget<double>(
                 conditionsMatch: const [
                   ConditionBreakpoint<double>.smallerThan(
@@ -50,18 +54,18 @@ class AppTitleWidget extends StatelessWidget {
                   final textStyle = match != null
                       ? Theme.of(context)
                           .textTheme
-                          .headline3!
+                          .displaySmall!
                           .copyWith(fontSize: match)
-                      : Theme.of(context).textTheme.headline3;
+                      : Theme.of(context).textTheme.displaySmall;
 
                   return RichText(
                     text:
                         TextSpan(text: 'Melody', style: textStyle,),
                   );
                 },
-              ),
-            ],
+              )],
           ),
+          
         ),
       ),
     );
