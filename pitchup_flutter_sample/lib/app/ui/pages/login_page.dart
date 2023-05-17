@@ -1,14 +1,15 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../config/router/routes.dart';
 
-class LoginScreen extends StatefulWidget{
+class LoginScreen extends StatefulWidget {
   const LoginScreen({
     Key? key,
   }) : super(key: key);
-
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -90,7 +91,9 @@ class _LoginScreenState extends State<LoginScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: ElevatedButton(
-              onPressed: () {context.go('/page');},
+              onPressed: () {
+                context.go('/page');
+              },
               // padding: EdgeInsets.all(25),
               // decoration: BoxDecoration(
               //   color: Colors.lightGreen,
@@ -119,20 +122,23 @@ class _LoginScreenState extends State<LoginScreen> {
                 fontWeight: FontWeight.bold,
               ), //TextStyle
             ), //Text
-            Text(
-              ' Register now',
-              style: TextStyle(
-                color: Colors.blue,
-                fontWeight: FontWeight.bold,
-              ), //TextStyle
-            ) //Text
+            TextButton(
+              onPressed: () {context.go('/signup');},
+              child: Text(
+                ' Register now',
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontWeight: FontWeight.bold,
+                ), //TextStyle),
+              ),
+            ), //Text
           ]) // Row
         ]) //Column
             ), // Center
       ), //SafeArea
     ); // Scaffold
   }
-  
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
