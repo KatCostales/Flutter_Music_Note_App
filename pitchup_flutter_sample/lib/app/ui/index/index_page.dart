@@ -30,6 +30,7 @@ class IndexPage extends StatefulWidget {
 class _IndexPageState extends State<IndexPage> {
   @override
   Widget build(BuildContext context) {
+    
     final indexPageProvider = context.read<IndexPageProvider>();
 
     return Scaffold(

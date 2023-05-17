@@ -28,7 +28,7 @@ class HomeView extends StatelessWidget {
             // add image
             color: Colors.grey[200],
             alignment: Alignment.center,
-            child: Image.asset('assets/Green_and_White_Music_Logo.png'),
+            child: Image.asset('assets/welcomeImage.png'),
           ),
         ]));
   }

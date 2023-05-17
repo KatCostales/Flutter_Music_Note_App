@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pitchupfluttersample/config/values/colors.dart';
 
-import '../../../config/router/routes.dart';
+import '../../../mysql/mysql.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({
@@ -17,6 +17,10 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  var db = Mysql();
+  var email = '';
+  var password = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,6 +55,9 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Padding(
                 padding: const EdgeInsets.only(left: 20.0),
                 child: TextField(
+                  onChanged: (value) {
+                    email = value;
+                  },
                   decoration: InputDecoration(
                     hintText: 'Email',
                     hintStyle: TextStyle(color: Colors.black),
@@ -74,6 +81,9 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Padding(
                 padding: const EdgeInsets.only(left: 20.0),
                 child: TextField(
+                  onChanged: (value) {
+                    password = value;
+                  },
                   obscureText: true,
                   decoration: InputDecoration(
                     border: InputBorder.none,
@@ -92,7 +102,9 @@ class _LoginScreenState extends State<LoginScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: ElevatedButton(
               onPressed: () {
-                context.go('/page');
+                if (db.emailExists(email) && email != '' && password != '') {
+                    context.go('/page');
+                }
               },
               // padding: EdgeInsets.all(25),
               // decoration: BoxDecoration(
@@ -134,16 +146,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 ), //TextStyle),
               ),
             ), //Text
-          ]) // Row
+          ]), // Row
         ]) //Column
             ), // Center
       ), //SafeArea
     ); // Scaffold
   }
-
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
-  } // Widget build
 } // _LoginScreenState bracket

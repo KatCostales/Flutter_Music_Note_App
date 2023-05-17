@@ -10,7 +10,6 @@ import 'package:pitch_detector_dart/pitch_detector.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../presenter/index_page_provider.dart';
 
