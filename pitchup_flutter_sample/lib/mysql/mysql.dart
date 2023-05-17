@@ -1,7 +1,8 @@
 import 'package:mysql1/mysql1.dart';
-
 // https://www.youtube.com/watch?v=ig6WRq73iEg
+
 class Mysql {
+  // Information to connect to the database
   static String host = 'melodyapp-1.c3wibgkxzweu.us-east-2.rds.amazonaws.com',
                 user = 'iteo24',
                 password = 'password',
@@ -10,6 +11,7 @@ class Mysql {
 
   Mysql();
 
+  // Connect to database
   Future<MySqlConnection> getConnection() async {
     var settings = ConnectionSettings(
       host: host,

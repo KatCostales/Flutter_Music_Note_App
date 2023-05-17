@@ -54,49 +54,7 @@ String calculateNote(double pitch) {
   return "N/A";
 }
 
-// class IndexPageProvider extends ChangeNotifier {
-//   //ChangeNotifier means that is can notify others about its own changes
-//   final random = Random();
-//   var currentNote = NoteImage.random();
-//   void getNext() {
-//     var temp = NoteImage.random();
-//     while (temp == currentNote) {
-//       temp = NoteImage.random();
-//       //temp = NoteImage.random();
-//     }
-//     currentNote = temp;
-//     notifyListeners(); // a method of Change Notifier that ensures that anyone watching IndexPageProvider is notified
-//   }
-// }
-
-class OtherView extends StatelessWidget {
-  const OtherView({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ColoredBox(
-      color: Colors.white,
-      child: Center(
-        child: FittedBox(
-          fit: BoxFit.contain,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              'Tools',
-              style: GoogleFonts.montserratAlternates(
-                fontSize: 80,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
 class FlashcardPage extends StatelessWidget {
-  //NotesRoute notesRoute = const NotesRoute();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -211,15 +169,20 @@ class _NotesRouteState extends State<NotesRoute> {
     var noteImage = appState.currentNote;
     var isEqual = note == noteImage.last;
 
+
+    // Start recording when the page is built (note starts out as "")
     if (note == "") {
       startCapture();
     }
+
+    // After exiting the page, stop recording
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       if (!Navigator.canPop(context)) {
         stopCapture();
       }
     });
 
+    // If the note being played matches the note being displayed, move on to the next note
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (isEqual) {
         prevNote = noteImage.last;
@@ -227,7 +190,9 @@ class _NotesRouteState extends State<NotesRoute> {
       }
     });
 
-    if (note.length == 2 && !isEqual &&
+    // If an incorrect note is played, set the wrongNote flag to true for 1 second
+    if (note.length == 2 &&
+        !isEqual &&
         note != prevNote) {
       wrongNote = true;
       Timer(Duration(seconds: 1), () {
@@ -270,7 +235,7 @@ class _NotesRouteState extends State<NotesRoute> {
                               BigCard(note: noteImage.first),
                               AnimatedOpacity(
                                 duration: const Duration(seconds: 1),
-                                opacity: wrongNote ? 1.0 : 0.0,
+                                opacity: wrongNote ? 1.0 : 0.0, // Fade in and out over a 1 second period
                                 child: Align(
                                   alignment: Alignment.topCenter,
                                   child: Text('Try again!'),
@@ -323,12 +288,9 @@ class BigCard extends StatelessWidget {
   const BigCard({
     super.key,
     required this.note,
-    // required this.isEqual,
-    // required void Function(String note, String noteImageName) onIsEqual,
   });
 
-  final Image? note;
-  // final void isEqual;
+  final Image? note;  // Image of the current note
 
   @override
   Widget build(BuildContext context) {
