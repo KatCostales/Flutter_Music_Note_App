@@ -42,7 +42,7 @@ class _IndexPageState extends State<IndexPage> {
       body: PageView(
         controller: indexPageProvider.controller,
         scrollDirection:
-            PlatformInfo.isMobile ? Axis.horizontal : Axis.vertical,
+            Axis.vertical,
         children: [
           HomeView(),
           AboutView(),

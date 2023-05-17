@@ -1,5 +1,7 @@
 import 'package:pitchupfluttersample/app/presenter/index_page_provider.dart';
 import 'package:pitchupfluttersample/app/ui/index/index_page.dart';
+import 'package:pitchupfluttersample/app/ui/pages/login_page.dart';
+import 'package:pitchupfluttersample/app/ui/pages/sign_up.dart';
 import 'package:pitchupfluttersample/core/navigator/navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -29,7 +31,7 @@ class JRouterConfiguration implements IConfigNavigator {
   @override
   void initConfiguration() {
     _router = GoRouter(
-      initialLocation: Routes.home,
+      initialLocation: Routes.login,
       urlPathStrategy: UrlPathStrategy.path,
       debugLogDiagnostics: true,
       navigatorBuilder: (context, state, child) {
@@ -37,23 +39,23 @@ class JRouterConfiguration implements IConfigNavigator {
       },
       routes: [
         GoRoute(
-          path: Routes.def,
+          path: Routes.login,
+          builder: (context, state) => LoginScreen(),
+          routes: [
+            GoRoute(
+              path: Routes.signup,
+              builder:(context, state) => SignUp(),
+            ),
+            GoRoute(
+              path: Routes.home,
+              builder: (context, state) {
+                Provider.of<IndexPageProvider>(context, listen: false)
+                    .updateScrollController('page');
 
-          builder: (context, state) {
-            Provider.of<IndexPageProvider>(context, listen: false)
-                .updateScrollController(state.params['page']!);
-
-            return IndexPage(
-              key: state.pageKey,
-              page: state.params['page']!,
-            );
-          },
-          // routes: [
-          //   GoRoute(
-          //     path: Routes.home,
-          //     builder: (context, state) => AboutView(),
-          //   ),
-          // ],
+                return IndexPage(page: 'page');
+              },
+            ),
+          ],
         ),
       ],
       errorPageBuilder: (context, state) => MaterialPage<void>(

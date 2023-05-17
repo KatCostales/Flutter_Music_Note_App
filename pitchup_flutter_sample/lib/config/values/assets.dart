@@ -3,5 +3,4 @@ class AssetsManager {
 
   //IMAGES
   // static const imgLogoApp = 'assets/images/logo.svg';
-
 }

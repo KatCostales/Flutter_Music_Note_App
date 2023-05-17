@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SignUp extends StatelessWidget{
+class SignUp extends StatefulWidget{
   const SignUp({Key? key}) : super(key: key);
 
   @override
@@ -32,14 +32,14 @@ class _SignUpState extends State<SignUp> {
         Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25.0),
         child: Container(
-            decoration: BoxDecoratin(
+            decoration: BoxDecoration(
               color: Colors.grey[200],
               border: Border.all(color:Colors.white),
-              borderRadius: borderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12),
             ),  //Box Decoration
             child: Padding (
               padding: const EdgeInsets.only(left:20.0),
-                child: Textfield(
+                child: TextField(
                  decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: 'First Name',
@@ -55,14 +55,14 @@ class _SignUpState extends State<SignUp> {
         Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25.0),
         child: Container(
-            decoration: BoxDecoratin(
+            decoration: BoxDecoration(
               color: Colors.grey[200],
               border: Border.all(color:Colors.white),
-              borderRadius: borderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12),
             ),  //Box Decoration
             child: Padding (
               padding: const EdgeInsets.only(left:20.0),
-                child: Textfield(
+                child: TextField(
                  decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: 'Email',
@@ -78,14 +78,14 @@ class _SignUpState extends State<SignUp> {
         Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25.0),
         child: Container(
-            decoration: BoxDecoratin(
+            decoration: BoxDecoration(
               color: Colors.grey[200],
               border: Border.all(color:Colors.white),
-              borderRadius: borderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12),
             ),  //Box Decoration
             child: Padding (
               padding: const EdgeInsets.only(left:20.0),
-                child: Textfield(
+                child: TextField(
                  decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: 'Phone Number',
@@ -98,12 +98,12 @@ class _SignUpState extends State<SignUp> {
 
         // Sign in button
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0).
+          padding: const EdgeInsets.symmetric(horizontal: 25.0),
           child: Container(
             padding: EdgeInsets.all(25),
         decoration: BoxDecoration (
-          color: Colors.lightgreen,
-          border: BorderRadius.circular(12),
+          color: Colors.lightGreen,
+          //border: BorderRadius.circular(12),
           ),  // BoxDecoration
         child: Center(
           child: Text ('Sign In',
@@ -116,7 +116,7 @@ class _SignUpState extends State<SignUp> {
             ), //Text
           ), //Center
         ), //Container
-      )  //Padding
+      ),  //Padding
 
       SizedBox(height: 10),
         ]

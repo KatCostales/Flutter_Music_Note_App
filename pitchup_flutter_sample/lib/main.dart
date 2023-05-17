@@ -30,7 +30,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       title: 'Material App',
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),  //make the login screen the home landing page
       routeInformationParser: exaRouter.routeInformationParser,
       routerDelegate: exaRouter.routerDelegate,
       builder: (_, child) => ResponsiveWrapper(

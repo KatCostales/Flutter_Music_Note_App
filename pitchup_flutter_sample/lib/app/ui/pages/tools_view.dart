@@ -5,6 +5,7 @@ import 'dart:math';
 import 'package:analyzer_plugin/utilities/pair.dart';
 
 import 'package:flutter_audio_capture/flutter_audio_capture.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pitch_detector_dart/pitch_detector.dart';
 
 import 'package:flutter/material.dart';
@@ -124,6 +125,7 @@ class FlashcardPage extends StatelessWidget {
         ElevatedButton(
           onPressed: () {
             print('chords');
+            context.go('/home');
           },
           child: const Text('Chords'),
         ),

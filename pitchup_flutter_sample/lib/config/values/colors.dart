@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 
-const kYellowColor = Color(0xffF7DA70);
-const kPinkLightColor = Color(0xFFF1B3B7); //ok
+const kYellowColor = Color.fromARGB(255, 185, 215, 153);
+const kPinkLightColor = Color.fromARGB(255, 244, 202, 205); //ok
 
-const kRedErrorColor = Colors.red; // ok
-const kBrownColor = Color(0xff846e50);
+const kRedErrorColor = Color.fromARGB(255, 233, 145, 139); // ok
+const kBrownColor = Color.fromARGB(255, 167, 146, 117);
 
-const kBlackColor = Color(0xff2E2C3C); //ok
-const kWhiteColor = Color(0xFFFFFFFE); //ok
+const kBlackColor = Color.fromARGB(255, 0, 0, 0); //ok
+const kWhiteColor = Color.fromARGB(255, 255, 255, 255); //ok
 const kCreamColor = Color(0xFFF4EDDB);
 
-const kGrayColor = Color(0xFF4E4E4B); //ok
+const kGrayColor = Color.fromARGB(255, 150, 150, 147); //ok
 final kGrayColorOpacity = kGrayColor.withOpacity(0.3); //ok
-final kLightGrayColor2 = Colors.grey.shade600; //ok
-const kBgLightColor = Color(0xFFF2F4FC);
+final kLightGrayColor2 = Color.fromARGB(255, 197, 195, 195); //ok
+const kBgLightColor = Color.fromARGB(255, 216, 219, 233);
 
 const kBlueColor = Color(0xFF94B9C9);
 
 const kPrimaryColor = kYellowColor;
-const kPrimaryColorLight = kPinkLightColor;
+const kPrimaryColorLight = kCreamColor;
 const kBackgroundColor = kWhiteColor;
 const kAccentColor = kBrownColor;

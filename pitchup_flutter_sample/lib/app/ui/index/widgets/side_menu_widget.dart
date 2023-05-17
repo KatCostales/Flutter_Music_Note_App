@@ -32,10 +32,10 @@ class SideMenuWidget extends StatelessWidget {
                 child: PointsDecorationWidget(
                   radius: 10,
                   colors: [
-                    kBlackColor,
-                    kBlueColor,
-                    kBlueColor,
-                    kBlackColor,
+                    Colors.lightGreen,
+                    kCreamColor,
+                    kCreamColor,
+                     Colors.lightGreen,
                   ],
                 ),
               ),

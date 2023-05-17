@@ -320,6 +320,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
+  mysql1:
+    dependency: "direct main"
+    description:
+      name: mysql1
+      sha256: "68aec7003d2abc85769bafa1777af3f4a390a90c31032b89636758ff8eb839e9"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.20.0"
   nested:
     dependency: transitive
     description:
@@ -774,5 +782,5 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: "2.19.4"
+  dart: "2.19.3"
   flutter: ">=3.3.0"

@@ -21,10 +21,10 @@ class AppTitleWidget extends StatelessWidget {
             children: [
               const PointsDecorationWidget(
                 colors: [
-                  kYellowColor,
+                 Colors.lightGreen,
                   kCreamColor,
                   kCreamColor,
-                  kYellowColor,
+                  Colors.lightGreen,
                 ],
               ),
               ConditionalResponsiveWidget<double>(
@@ -56,12 +56,7 @@ class AppTitleWidget extends StatelessWidget {
 
                   return RichText(
                     text:
-                        TextSpan(text: 'Landing', style: textStyle, children: [
-                      TextSpan(
-                        text: 'Page',
-                        style: textStyle,
-                      )
-                    ]),
+                        TextSpan(text: 'Melody', style: textStyle,),
                   );
                 },
               ),

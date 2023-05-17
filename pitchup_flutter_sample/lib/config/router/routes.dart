@@ -1,4 +1,5 @@
 class Routes {
-  static String def = '/:page';
-  static String home = '/home';
+  static String login = '/';
+  static String home = 'page';
+  static String signup = 'signup';
 }
