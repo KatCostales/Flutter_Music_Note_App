@@ -17,12 +17,14 @@ class ContactView extends StatelessWidget {
             fit: BoxFit.contain,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text('Contact Us!',
-                  style: GoogleFonts.montserratAlternates(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  )),
+              child: Text(
+                'Contact Us!',
+                style: GoogleFonts.montserratAlternates(
+                  color: Colors.black,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
           )),
 
@@ -36,7 +38,7 @@ class ContactView extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
               ), //Box Decoration
               child: Padding(
-                padding: const EdgeInsets.only(left: 230.0),
+                padding: const EdgeInsets.only(left: 10.0),
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: 'Full Name',
@@ -59,7 +61,7 @@ class ContactView extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
               ), //Box Decoration
               child: Padding(
-                padding: const EdgeInsets.only(left: 230.0),
+                padding: const EdgeInsets.only(left: 10.0),
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: 'Phone Number',
@@ -82,7 +84,7 @@ class ContactView extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
               ), //Box Decoration
               child: Padding(
-                padding: const EdgeInsets.only(left: 230.0),
+                padding: const EdgeInsets.only(left: 10.0),
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: 'Email',

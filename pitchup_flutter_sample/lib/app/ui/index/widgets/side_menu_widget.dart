@@ -1,17 +1,21 @@
 import 'package:argo/argo.dart';
 import 'package:pitchupfluttersample/app/presenter/index_page_provider.dart';
 import 'package:pitchupfluttersample/app/ui/core/header_item_uim.dart';
-import 'package:pitchupfluttersample/app/ui/shared/top_menu/points_decoration_widget.dart';
+import 'package:pitchupfluttersample/app/ui/pages/login_page.dart';
 import 'package:pitchupfluttersample/config/values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../mysql/mysql.dart';
+import '../../../../mysql/user.dart';
 import 'menu_item_widget.dart';
 
 class SideMenuWidget extends StatelessWidget {
-  const SideMenuWidget({
+  SideMenuWidget({
     Key? key,
   }) : super(key: key);
+
+  final Mysql db = Mysql();
 
   @override
   Widget build(BuildContext context) {
@@ -27,15 +31,15 @@ class SideMenuWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: kSpaceMedium),
           child: Column(
             children: [
-              const Align(
+              Align(
                 alignment: Alignment.center,
-                child: PointsDecorationWidget(
-                  radius: 10,
-                  colors: [
-                    Colors.lightGreen,
-                    kCreamColor,
-                    kCreamColor,
-                     Colors.lightGreen,
+                child: Row(
+                  children: [
+                    Text(User.name!),
+                    CircleAvatar(
+                      backgroundImage: AssetImage('assets/logo.png'),
+                      radius: 30,
+                    ),
                   ],
                 ),
               ),

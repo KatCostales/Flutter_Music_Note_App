@@ -1,6 +1,5 @@
 /// [def]
 
-import 'package:argo/argo.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -37,7 +36,7 @@ class _IndexPageState extends State<IndexPage> {
       appBar: const TopbarWidget(),
       endDrawer: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 250),
-        child: const SideMenuWidget(),
+        child: SideMenuWidget(),
       ),
       endDrawerEnableOpenDragGesture: false,
       body: PageView(

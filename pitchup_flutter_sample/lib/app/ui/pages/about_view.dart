@@ -45,7 +45,7 @@ class AboutView extends StatelessWidget {
               //color: Colors.grey[200],
               alignment: Alignment.center,
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
+              height: MediaQuery.of(context).size.height - 300,
               decoration: BoxDecoration(
                   image: DecorationImage(
                       fit: BoxFit.cover,

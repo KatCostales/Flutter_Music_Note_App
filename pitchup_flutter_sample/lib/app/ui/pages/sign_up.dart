@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../config/router/routes.dart';
 import '../../../mysql/mysql.dart';
+import '../../../mysql/user.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -24,10 +25,11 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          SizedBox(height: 100),
           // Welcome!
           Text(
             'Sign up to Become a Member!',
@@ -136,7 +138,6 @@ class _SignUpState extends State<SignUp> {
                   onChanged: (value) {
                     password = value;
                   },
-                  keyboardType: TextInputType.phone,
                   obscureText: true,
                   decoration: InputDecoration(
                     border: InputBorder.none,
@@ -160,20 +161,22 @@ class _SignUpState extends State<SignUp> {
                   conn.query(sql).then((results) {
                     setState(() {
                       for (var row in results) {
-                        print(row['email']);
+                        print(row['email']); // For debugging
                         if (row['email'] != email &&
-                    email != '' &&
-                    name != '' &&
-                    phone != '' &&
-                    password != '') {
-                  db.addUser(email, password, name, phone);
-                  context.go('/page');
-                }
+                            email != '' &&
+                            name != '' &&
+                            phone != '' &&
+                            password != '') {
+                          db.addUser(email, password, name, phone);
+                          User.setEmail(email);
+                          User.setName(name);
+                          User.setPhone(phone);
+                          context.go('/page');
+                        }
                       }
                     });
                   });
                 });
-                
               },
               // padding: EdgeInsets.all(25),
               // decoration: BoxDecoration(
