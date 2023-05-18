@@ -161,7 +161,7 @@ class _SignUpState extends State<SignUp> {
                     setState(() {
                       for (var row in results) {
                         print(row['email']);
-                        if (temp != email &&
+                        if (row['email'] != email &&
                     email != '' &&
                     name != '' &&
                     phone != '' &&
