@@ -15,13 +15,13 @@ class HomeView extends StatelessWidget {
             fit: BoxFit.contain,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'Home',
-                style: GoogleFonts.montserratAlternates(
-                  fontSize: 80,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              // child: Text(
+              //   'Home',
+              //   style: GoogleFonts.montserratAlternates(
+              //     fontSize: 80,
+              //     fontWeight: FontWeight.bold,
+              //   ),
+              // ),
             ),
           ),
           Container(

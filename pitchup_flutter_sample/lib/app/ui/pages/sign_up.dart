@@ -168,9 +168,6 @@ class _SignUpState extends State<SignUp> {
                             phone != '' &&
                             password != '') {
                           db.addUser(email, password, name, phone);
-                          User.setEmail(email);
-                          User.setName(name);
-                          User.setPhone(phone);
                           context.go('/page');
                         }
                       }

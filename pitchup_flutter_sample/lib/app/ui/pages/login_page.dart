@@ -9,9 +9,12 @@ import '../../../mysql/mysql.dart';
 import '../../../mysql/user.dart';
 
 class LoginScreen extends StatefulWidget {
+  // final ValueNotifier dropdownValueNotifier;
   const LoginScreen({
     Key? key,
   }) : super(key: key);
+
+  
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -127,7 +130,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       for (var row in results) {
                         print(row['password']); // For debugging
                         if (row['password'] == password) {
-                          User.setEmail(email);
                           context.go('/page');
                         } else {
                           incorrectPass = true;

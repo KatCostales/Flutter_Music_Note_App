@@ -33,7 +33,9 @@ class AboutView extends StatelessWidget {
             Center(
               child: Text(
                 'Welcome to Melody! A learning tool towards reading sheet music and honing your musical talents',
+                textAlign: TextAlign.center,
                 style: GoogleFonts.montserratAlternates(
+
                   color: Colors.black,
                   fontSize: 20,
                   fontWeight: FontWeight.w300, //makes text lighter

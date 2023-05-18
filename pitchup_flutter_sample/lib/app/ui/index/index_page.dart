@@ -1,6 +1,7 @@
 /// [def]
 
 import 'package:flutter/material.dart';
+import 'package:pitchupfluttersample/app/ui/pages/uesr_profile.dart';
 import 'package:provider/provider.dart';
 
 /// [loc]
@@ -44,11 +45,12 @@ class _IndexPageState extends State<IndexPage> {
         scrollDirection:
             Axis.vertical,
         children: [
+          UserProfile(),
+          FlashcardPage(),
           HomeView(),
           AboutView(),
           ContactView(),
-          LocationView(),
-          FlashcardPage(),
+          
         ],
       ),
     );

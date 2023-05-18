@@ -10,10 +10,9 @@ final itemsPage = [
       ),
   HeaderItemUIModel(
     id: 1,
-    title: 'Home',
-    route: '/home',
-    isSelected: true,
-    icon: Icons.home,
+    title: 'Tools',
+    route: '/tools',
+    icon: Icons.abc_sharp,
   ),
   HeaderItemUIModel(
     id: 2,
@@ -34,8 +33,9 @@ final itemsPage = [
   ),
   HeaderItemUIModel(
     id: 5,
-    title: 'Tools',
-    route: '/tools',
-    icon: Icons.abc_sharp,
+    title: 'Home',
+    route: '/home',
+    isSelected: true,
+    icon: Icons.home,
   ),
 ];

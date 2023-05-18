@@ -7,15 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../mysql/mysql.dart';
-import '../../../../mysql/user.dart';
 import 'menu_item_widget.dart';
 
 class SideMenuWidget extends StatelessWidget {
   SideMenuWidget({
     Key? key,
   }) : super(key: key);
-
-  final Mysql db = Mysql();
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +32,7 @@ class SideMenuWidget extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Row(
                   children: [
-                    Text(User.name!),
+                    Text(''),
                     CircleAvatar(
                       backgroundImage: AssetImage('assets/logo.png'),
                       radius: 30,
