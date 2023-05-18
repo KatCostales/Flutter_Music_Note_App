@@ -10,32 +10,28 @@ final itemsPage = [
       ),
   HeaderItemUIModel(
     id: 1,
-    title: 'Tools',
+    title: 'Flashcards',
     route: '/tools',
-    icon: Icons.abc_sharp,
+    icon: Icons.square_foot_rounded,
   ),
   HeaderItemUIModel(
-    id: 2,
-    title: 'About',
-    route: '/about',
-    icon: Icons.account_box_outlined,
-  ),
-  HeaderItemUIModel(
-      id: 3,
-      title: 'Contact',
-      route: '/contact',
-      icon: Icons.contact_page_sharp),
-  HeaderItemUIModel(
-    id: 4,
-    title: 'Solutions',
-    route: '/solutions',
-    icon: Icons.location_on,
-  ),
-  HeaderItemUIModel(
-    id: 5,
+    id: 3,
     title: 'Home',
     route: '/home',
     isSelected: true,
     icon: Icons.home,
   ),
+  HeaderItemUIModel(
+    id: 4,
+    title: 'About',
+    route: '/about',
+    icon: Icons.account_box_outlined,
+  ),
+  HeaderItemUIModel(
+      id: 5,
+      title: 'Contact',
+      route: '/contact',
+      icon: Icons.contact_page_sharp),
+
+  
 ];
