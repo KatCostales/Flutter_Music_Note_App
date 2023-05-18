@@ -47,6 +47,8 @@ class ContactView extends StatelessWidget {
             ),
           ),
 
+          SizedBox(height: 20), // Spacing between words
+
           // Phone Number Contact
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40.0),
@@ -67,6 +69,8 @@ class ContactView extends StatelessWidget {
               ),
             ),
           ),
+
+          SizedBox(height: 20), // Spacing between words
 
           // Email Contact
           Padding(

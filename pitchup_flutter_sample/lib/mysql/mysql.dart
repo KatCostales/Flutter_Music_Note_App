@@ -20,7 +20,7 @@ class Mysql {
     var id;
     getConnection().then((conn) {
       String sql = 'select id from `melody-1`.users';
-      sql += ' where email = \'$email\'';
+      sql += ' where id = \'$email\'';
       conn.query(sql).then((results) {
         for (var row in results) {
           id = row[0];
@@ -30,15 +30,16 @@ class Mysql {
     return id;
   }
 
-  String getEmail(int id) {
-    var email;
+  String getEmail(void Function(void Function()) state, String email) {
     getConnection().then((conn) {
       String sql = 'select email from `melody-1`.users';
-      sql += ' where id = \'$id\'';
+      sql += ' where email = \'$email\'';
       conn.query(sql).then((results) {
-        for (var row in results) {
-          id = row[0];
-        }
+        state(() {
+          for (var row in results) {
+              email = row['email'];
+          }
+        });
       });
     });
     return email;
@@ -51,9 +52,15 @@ class Mysql {
       sql += ' where email = \'$email\'';
       conn.query(sql).then((results) {
         for (var row in results) {
+          if (row[0] != null) {
           password = row[0];
+          }
+          else {
+            password = '';
+          }
         }
       });
+      conn.close();
     });
     return password;
   }
@@ -104,8 +111,8 @@ class Mysql {
     }
   }
 
-  bool passMatches(String email) {
-    var result;
+  bool passMatches(String email, String password) {
+    var result = '';
     getConnection().then((conn) {
       String sql = 'select password from `melody-1`.users';
       sql += ' where email = \'$email\'';
@@ -115,10 +122,10 @@ class Mysql {
         }
       });
     });
-    if (result == '' || result == null) {
-      return false;
-    } else {
+    if (result == password) {
       return true;
+    } else {
+      return false;
     }
   }
 

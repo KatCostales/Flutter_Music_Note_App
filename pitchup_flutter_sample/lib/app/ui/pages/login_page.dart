@@ -24,6 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.grey[300],
       body: SafeArea(
         child: Center(
@@ -31,7 +32,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           CircleAvatar(
             backgroundImage: AssetImage('assets/logo.png'),
+            radius: 200,
           ),
+
+                    SizedBox(height: 50), // Spacing between words
+
           // Welcome!
           Text(
             'Welcome to Melody!',
@@ -102,7 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: ElevatedButton(
               onPressed: () {
-                if (db.emailExists(email) && email != '' && password != '') {
+                if (db.passMatches(email, password)) {
                     context.go('/page');
                 }
               },
@@ -113,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
               // ), // BoxDecoration
               child: Center(
                 child: Text(
-                  'Sign In',
+                  'Log In',
                   style: TextStyle(
                     color: Colors.green[200],
                     fontWeight: FontWeight.bold,
